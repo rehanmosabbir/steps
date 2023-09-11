@@ -32,21 +32,35 @@ export default function App() {
             Step {step} : {messages[step - 1]}
           </p>
           <div className="buttons">
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handlePrevious}
-            >
-              Previous
-            </button>
-            <button
-              style={{ backgroundColor: "#7950f2", color: "#fff" }}
-              onClick={handleNext}
-            >
-              Next
-            </button>
+            <Button
+              bgColor="#7950f2"
+              textColor="#fff"
+              handleClick={handlePrevious}
+              text="Previous"
+              emoji="👈"
+            />
+            <Button
+              bgColor="#7950f2"
+              textColor="#fff"
+              handleClick={handleNext}
+              text="Next"
+              emoji="👉"
+            />
           </div>
         </div>
       )}
     </>
+  );
+}
+
+function Button({ bgColor, textColor, handleClick, text, emoji }) {
+  return (
+    <button
+      style={{ backgroundColor: bgColor, color: textColor }}
+      onClick={handleClick}
+    >
+      <span>{emoji}</span>
+      {text}
+    </button>
   );
 }
