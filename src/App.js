@@ -36,16 +36,12 @@ export default function App() {
               bgColor="#7950f2"
               textColor="#fff"
               handleClick={handlePrevious}
-              text="Previous"
-              emoji="👈"
-            />
-            <Button
-              bgColor="#7950f2"
-              textColor="#fff"
-              handleClick={handleNext}
-              text="Next"
-              emoji="👉"
-            />
+            >
+              <span>👈</span>Previous
+            </Button>
+            <Button bgColor="#7950f2" textColor="#fff" handleClick={handleNext}>
+              Next <span>👉</span>
+            </Button>
           </div>
         </div>
       )}
@@ -53,14 +49,13 @@ export default function App() {
   );
 }
 
-function Button({ bgColor, textColor, handleClick, text, emoji }) {
+function Button({ bgColor, textColor, handleClick, children }) {
   return (
     <button
       style={{ backgroundColor: bgColor, color: textColor }}
       onClick={handleClick}
     >
-      <span>{emoji}</span>
-      {text}
+      {children}
     </button>
   );
 }
